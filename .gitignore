@@ -1,0 +1,19 @@
+# Node modules
+node_modules/
+
+# Логи
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# env файлы с секретами
+.env
+
+# ОС мусор
+.DS_Store
+Thumbs.db
+
+# Кеш
+*.log
+.cache/
+dist/
