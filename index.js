@@ -5,6 +5,7 @@ import { neon } from "@neondatabase/serverless";
 
 import initDbRoute from "./routes/initdb/initdb.js";
 import usersCheckNew from "./routes/users/usersCheckNew.js"; 
+import usersCheck from "./routes/users/usersCheck.js";
 
 const app = express();
 const PORT = 7777;
@@ -17,7 +18,7 @@ const sql = neon("postgresql://neondb_owner:npg_6qYOi3rhkojp@ep-hidden-night-af7
 
 initDbRoute(app, sql);
 usersCheckNew(app, sql);
-
+usersCheck(app, sql);
 
 // Указываем папку со статическими файлами
 app.use(express.static('public'));

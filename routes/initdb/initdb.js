@@ -5,13 +5,13 @@ export default function initDbRoute(app, sql) {
         CREATE TABLE IF NOT EXISTS users (
           id SERIAL PRIMARY KEY,
           image TEXT,
-          nickname TEXT NOT NULL,
+          
           firstname TEXT,
           email TEXT UNIQUE NOT NULL,
-          quantity_online_create_service INT DEFAULT 0,
-          quantity_private_create_service INT DEFAULT 0,
-          quantity_public_create_service INT DEFAULT 0,
-          quantity_local_create_service INT DEFAULT 0,
+          quantityonlinecreateservice INT DEFAULT 0,
+          quantityprivatecreateservice INT DEFAULT 0,
+          quantitypubliccreateservice INT DEFAULT 0,
+          quantitylocalcreateservice INT DEFAULT 0,
           services JSONB DEFAULT '[]'
         )
       `;

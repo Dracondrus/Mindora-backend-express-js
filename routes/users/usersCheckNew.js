@@ -20,7 +20,6 @@ export default function usersRoute(app, sql) {
       await sql`
         INSERT INTO users (
           email,
-          nickname,
           firstname,
           image,
           quantityonlinecreateservice,
@@ -31,12 +30,11 @@ export default function usersRoute(app, sql) {
         )
         VALUES (
           ${email},
-          '',               -- nickname
           ${name || ""},    -- firstname
           ${image || ""},   -- image
           1,
-          1,
-          1,
+          0,
+          0,
           3,
           '[]'::jsonb       -- services
         )
@@ -44,7 +42,7 @@ export default function usersRoute(app, sql) {
 
       res.send("✅ Новый пользователь создан");
     } catch  {
-      console.error("❌ Ошибка в /users:", err);
+      console.error("❌ Ошибка в /users:");
      
     }
   });
