@@ -19,25 +19,35 @@ export default function usersRoute(app, sql) {
       // Создаём нового пользователя с дефолтами
       await sql`
         INSERT INTO users (
-          email,
-          firstname,
-          image,
-          quantityonlinecreateservice,
-          quantityprivatecreateservice,
-          quantitypubliccreateservice,
-          quantitylocalcreateservice,
-          services
-        )
-        VALUES (
-          ${email},
-          ${name || ""},    -- firstname
-          ${image || ""},   -- image
-          1,
-          0,
-          0,
-          3,
-          '[]'::jsonb       -- services
-        )
+  email,
+  firstname,
+  image,
+  localstorage, 
+  publicstorage,
+  privatestorage,
+  publicservice,
+  privateservice,
+  privateterm,
+  publicterm,
+  localterm,
+  limitcreate,
+  services
+)
+VALUES (
+  ${email},
+  ${name || ""},    
+  ${image || ""},   
+  4,
+  1,
+  0,
+  0,
+  0,
+  0,
+  0,
+  0,
+  4,
+  '[]'::jsonb
+)
       `;
 
       res.send("✅ Новый пользователь создан");
