@@ -9,8 +9,12 @@ import usersService from "./routes/users/UsersServices.js";
 
 const app = express();
 const PORT = 7777;
+app.use(cors({
+  origin: "https://mindora-by-elfasa.vercel.app",
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  credentials: true,
+}));
 
-app.use(cors());
 app.use(express.json());
 
 
